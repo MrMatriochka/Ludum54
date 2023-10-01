@@ -28,6 +28,11 @@ public class DoorButton : MonoBehaviour
             timer = timerReset;
             animator.SetBool("Closed", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CloseDoor();
+        }
     }
 
     public void CloseDoor()
