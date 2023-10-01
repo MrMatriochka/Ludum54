@@ -22,7 +22,7 @@ public class SoundNumberTask : MonoBehaviour
     IEnumerator SoundSequence()
     {
         bipNum = Random.Range(bipNumMin, bipNumMax);
-        for (int i = 0; i <= bipNum; i++)
+        for (int i = 1; i <= bipNum; i++)
         {
             audio.Play();
             led.SetActive(true);
@@ -66,6 +66,7 @@ public class SoundNumberTask : MonoBehaviour
         if(inputNum == bipNum)
         {
             print("Win");
+            
         }
         else
         {
