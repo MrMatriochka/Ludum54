@@ -21,6 +21,10 @@ public class SimonSayManager : MonoBehaviour
     private int positionInSequence;
 
     private bool gameActive;
+    private int inputInSequence;
+
+    private int score;
+    public int scoreNeeded;
     void Start()
     {
         
@@ -65,11 +69,19 @@ public class SimonSayManager : MonoBehaviour
                 }
             }
         }
+
+        if (score == scoreNeeded)
+        {
+            
+        }
     }
 
     public void StartGame()
     {
+        activeSequence.Clear();
+        
         positionInSequence = 0;
+        inputInSequence = 0;
         
         colorSelect = Random.Range(0, colors.Length);
         
@@ -87,13 +99,35 @@ public class SimonSayManager : MonoBehaviour
     {
         if(gameActive)
         {
-            if(colorSelect == whichButton)
+            if(activeSequence[inputInSequence] == whichButton)
             {
                 Debug.Log("correct");
+                inputInSequence++;
+                
+                if (inputInSequence >= activeSequence.Count)
+                {
+                    positionInSequence = 0;
+                    inputInSequence = 0;
+                    
+                    colorSelect = Random.Range(0, colors.Length);
+        
+                    activeSequence.Add(colorSelect);
+
+                    colors[activeSequence[positionInSequence]].color = new Color(colors[activeSequence[positionInSequence]].color.r,
+                        colors[activeSequence[positionInSequence]].color.g, colors[activeSequence[positionInSequence]].color.b, 1f);
+
+                    stayLitTimer = stayLit;
+                    beLit = true;
+
+                    gameActive = false;
+                    score++;
+                }
             }
             else
             {
                 Debug.Log("Wrong");
+                gameActive = false;
+                score = 0;
             }
         }
     }
