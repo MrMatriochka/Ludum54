@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4173114223463736959}
   - component: {fileID: 4726084061220546297}
   - component: {fileID: 1817916699826673821}
+  - component: {fileID: 5032099376685807490}
   - component: {fileID: 2804761106435174679}
   m_Layer: 0
   m_Name: TaskPoint
@@ -106,6 +107,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &5032099376685807490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945132258859931531}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 18.895088, y: 1, z: 14.805866}
+  m_Center: {x: 8.947544, y: 0, z: -0.16094017}
 --- !u!114 &2804761106435174679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7165c7edb13aca44a7b558e3b1a87c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskObj: {fileID: 0}
   fixing: 0
   fixNeeded: 0
   minBrokeDelay: 5

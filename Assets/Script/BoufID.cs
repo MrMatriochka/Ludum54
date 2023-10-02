@@ -67,5 +67,6 @@ public class BoufID : MonoBehaviour
         Material[] mats = renderer.materials;
         mats[1] = newMat;
         renderer.materials = mats;
+        transform.GetChild(1).GetComponent<Renderer>().material=newMat;
     }
 }
