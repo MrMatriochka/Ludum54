@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaskPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject taskObj;
     void Start()
     {
         StartCoroutine(WaitForBroke());
@@ -34,11 +34,12 @@ public class TaskPoint : MonoBehaviour
         yield return null;
     }
 
+    BaseIA ia;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            BaseIA ia = other.GetComponent<BaseIA>();
+            ia = other.GetComponent<BaseIA>();
 
             if (fixNeeded && !fixing && !ia.goToTask)
             {
@@ -52,5 +53,15 @@ public class TaskPoint : MonoBehaviour
             }
         }
         
+    }
+
+    public void TaskComplete()
+    {
+        fixing = false;
+        fixNeeded = false;
+        StartCoroutine("WaitForBroke");
+
+        ia.WanderAround();
+        ia.isWandering = true;
     }
 }

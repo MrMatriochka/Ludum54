@@ -5,12 +5,24 @@ using UnityEngine;
 public class SoundNumberTask : MonoBehaviour
 {
     AudioSource audio;
+    public TaskPoint task;
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        StartCoroutine(SoundSequence());
+       
     }
 
+    private void OnEnable()
+    {
+        audio = GetComponent<AudioSource>();
+        foreach (GameObject obj in inputsObj)
+        {
+            obj.GetComponent<Renderer>().material = off;
+        }
+        inputNum = 0;
+
+        StartCoroutine(SoundSequence());
+    }
     public int bipNumMax;
     public int bipNumMin;
     int bipNum;
@@ -65,8 +77,9 @@ public class SoundNumberTask : MonoBehaviour
     {
         if(inputNum == bipNum)
         {
-            print("Win");
-            
+            task.TaskComplete();
+
+            transform.parent.gameObject.SetActive(false);
         }
         else
         {

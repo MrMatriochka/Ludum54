@@ -30,13 +30,8 @@ public class BaseIA : MonoBehaviour
         
 		if(goToTask && navMeshAgent.remainingDistance <= 0.1f)
         {
-			goToTask = false;
-
-			task.fixing = false;
-			task.fixNeeded = false;
-			task.StartCoroutine("WaitForBroke");
-			WanderAround();
-			isWandering = true;
+			task.taskObj.SetActive(true);
+			goToTask = false;			
 		}
     }
 
@@ -44,7 +39,7 @@ public class BaseIA : MonoBehaviour
 
 	Vector3 aiWanderGoal = Vector3.zero;
 
-	void WanderAround()
+	public void WanderAround()
 	{
 		Vector3 randomDirection = Random.insideUnitSphere * distance;
 		randomDirection += centerOfShip.transform.position;
