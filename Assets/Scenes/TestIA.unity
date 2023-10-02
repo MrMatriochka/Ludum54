@@ -1137,16 +1137,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8557045927999235110, guid: 3c40d7f5b7457bc4c823f75a3d4162fa,
-        type: 3}
-      propertyPath: m_Carve
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8557045927999235110, guid: 3c40d7f5b7457bc4c823f75a3d4162fa,
-        type: 3}
-      propertyPath: m_CarveOnlyStationary
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3962,6 +3952,7 @@ MonoBehaviour:
   - {fileID: 1372981070}
   - {fileID: 955268238}
   outfits: 
+  hp: 0
 --- !u!4 &2140877121
 Transform:
   m_ObjectHideFlags: 0

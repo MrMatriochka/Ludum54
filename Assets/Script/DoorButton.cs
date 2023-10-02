@@ -11,6 +11,8 @@ public class DoorButton : MonoBehaviour
     public float timer;
     private float timerReset;
 
+    public Material open;
+    public Material close;
     private void Start()
     {
         timerReset = timer;
@@ -27,17 +29,27 @@ public class DoorButton : MonoBehaviour
         {
             timer = timerReset;
             animator.SetBool("Closed", false);
+            GetComponent<Renderer>().material = open;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            CloseDoor();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 20))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    CloseDoor();
+                }
+            }
         }
     }
 
     public void CloseDoor()
     {
         clicked = true;
+        GetComponent<Renderer>().material = close;
         animator.SetBool("Closed", true);
     }
 }
