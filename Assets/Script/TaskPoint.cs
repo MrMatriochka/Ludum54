@@ -31,11 +31,12 @@ public class TaskPoint : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeNextBroke);
         fixNeeded = true;
         GetComponent<Renderer>().material = broken;
+        GetComponent<Collider>().enabled = true;
         yield return null;
     }
 
     BaseIA ia;
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -63,5 +64,6 @@ public class TaskPoint : MonoBehaviour
 
         ia.WanderAround();
         ia.isWandering = true;
+        GetComponent<Collider>().enabled = false;
     }
 }

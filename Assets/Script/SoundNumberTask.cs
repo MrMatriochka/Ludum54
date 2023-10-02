@@ -6,6 +6,8 @@ public class SoundNumberTask : MonoBehaviour
 {
     AudioSource audio;
     public TaskPoint task;
+    public GameManager manager;
+    public float timer = 60;
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -22,6 +24,7 @@ public class SoundNumberTask : MonoBehaviour
         inputNum = 0;
 
         StartCoroutine(SoundSequence());
+        StartCoroutine(Timer());
     }
     public int bipNumMax;
     public int bipNumMin;
@@ -73,7 +76,16 @@ public class SoundNumberTask : MonoBehaviour
         inputsObj[inputNum].GetComponent<Renderer>().material = on;
         inputNum++;
     }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(timer);
+        manager.TaskFailed();
 
+        task.TaskComplete();
+
+        transform.parent.gameObject.SetActive(false);
+        yield return null;
+    }
     public void Confirm()
     {
         if(inputNum == bipNum)
@@ -84,7 +96,11 @@ public class SoundNumberTask : MonoBehaviour
         }
         else
         {
-            print("Loose");
+            manager.TaskFailed();
+
+            task.TaskComplete();
+
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

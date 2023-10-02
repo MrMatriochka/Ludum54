@@ -6,6 +6,8 @@ public class SoundLengthTask : MonoBehaviour
 {
     AudioSource audio;
     public TaskPoint task;
+    public GameManager manager;
+    public float timer = 60;
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -16,6 +18,7 @@ public class SoundLengthTask : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         StartCoroutine(SoundSequence());
+        StartCoroutine(Timer());
     }
 
     public GameObject led;
@@ -42,6 +45,16 @@ public class SoundLengthTask : MonoBehaviour
         }
     }
 
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(timer);
+        manager.TaskFailed();
+
+        task.TaskComplete();
+
+        transform.parent.gameObject.SetActive(false);
+        yield return null;
+    }
     public void Confirm()
     {
         if (audio.isPlaying)
@@ -50,7 +63,11 @@ public class SoundLengthTask : MonoBehaviour
         }
         else
         {
-            print("Loose");
+            manager.TaskFailed();
+
+            task.TaskComplete();
+
+            transform.parent.gameObject.SetActive(false);
         }    
 
     }

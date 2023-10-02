@@ -22,7 +22,7 @@ public class BaseIA : MonoBehaviour
     {
         if (isWandering)
         {
-			if (navMeshAgent.remainingDistance <= 0.1f || !navMeshAgent.hasPath)
+			if (navMeshAgent.remainingDistance <= 1f || !navMeshAgent.hasPath)
 			{
 				WanderAround();
 			}
@@ -47,8 +47,12 @@ public class BaseIA : MonoBehaviour
 
 		MoveTo(navHit.position);
 	}
-
-	void MoveTo(Vector3 location)
+    public void StopMoving()
+    {
+		goToTask = false;
+		isWandering = false;
+    }
+    public void MoveTo(Vector3 location)
 	{
 		navMeshAgent.SetDestination(location);
 	}
