@@ -36,6 +36,7 @@ public class SoundNumberTask : MonoBehaviour
         bipNum = Random.Range(bipNumMin, bipNumMax);
         for (int i = 1; i <= bipNum; i++)
         {
+            yield return new WaitForSeconds(2);
             audio.Play();
             led.SetActive(true);
             float waitTime = Random.Range(0.5f, 1);
