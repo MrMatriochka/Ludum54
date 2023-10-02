@@ -8,6 +8,9 @@ public class SoundNumberTask : MonoBehaviour
     public TaskPoint task;
     public GameManager manager;
     public float timer = 60;
+
+    public GameObject addButton;
+    public GameObject confirmButton;
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -51,14 +54,21 @@ public class SoundNumberTask : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            AddInput();
-        }
-
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            Confirm();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 20))
+            {
+                if (hit.collider.gameObject == addButton)
+                {
+                    AddInput();
+                }
+                if (hit.collider.gameObject == confirmButton)
+                {
+                    Confirm();
+                }
+            }
         }
     }
 
