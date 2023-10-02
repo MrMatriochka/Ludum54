@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BaseIA : MonoBehaviour
 {
-	public NavMeshAgent navMeshAgent;
+	[HideInInspector] public NavMeshAgent navMeshAgent;
 	[HideInInspector] public bool isWandering;
 	[HideInInspector] public bool isRepairing;
 	[HideInInspector] public bool goToTask;
@@ -36,8 +36,6 @@ public class BaseIA : MonoBehaviour
     }
 
 	[SerializeField] float distance = 10f;
-
-	Vector3 aiWanderGoal = Vector3.zero;
 
 	public void WanderAround()
 	{
