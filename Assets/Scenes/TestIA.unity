@@ -1877,33 +1877,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4427428960425406578}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1274600223
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274600216}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1297727853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,21 +4063,6 @@ PrefabInstance:
       propertyPath: centerOfShip
       value: 
       objectReference: {fileID: 2138753486}
-    - target: {fileID: 6372037539327966495, guid: 5bd29d571835ffb43bd52fd62cd45399,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6372037539327966495, guid: 5bd29d571835ffb43bd52fd62cd45399,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-    - target: {fileID: 6372037539327966495, guid: 5bd29d571835ffb43bd52fd62cd45399,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 8692447561193964806, guid: 5bd29d571835ffb43bd52fd62cd45399,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4160,19 +4118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bouf
       objectReference: {fileID: 0}
-    - target: {fileID: 9223203368363599346, guid: 5bd29d571835ffb43bd52fd62cd45399,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9223203368363599346, guid: 5bd29d571835ffb43bd52fd62cd45399,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1274600223}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd29d571835ffb43bd52fd62cd45399, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
